@@ -1,9 +1,7 @@
 <template>
   <div>
     <mt-header title="StockMarket" fixed>
-      <router-link to="/" slot="left">
-        <mt-button icon="back"></mt-button>
-      </router-link>
+      <mt-button slot="left" @click.native="$router.back(-1)" icon="back"></mt-button>
       <mt-button icon="search" slot="right"></mt-button>
     </mt-header>
     <router-view class="componment"/>
@@ -66,6 +64,10 @@ html body {
   color: rgb(126, 131, 137) !important;
 }
 .componment {
-  margin-top: 41px;
+  margin-top: 40px;
+    margin-bottom: 56px;
+}
+.red {
+  background-color: red !important;
 }
 </style>

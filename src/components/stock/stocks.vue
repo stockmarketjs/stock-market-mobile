@@ -1,16 +1,9 @@
 <template>
   <div>
-    <mt-cell v-bind:key="stock.id" v-for="stock in stocks" :title="`${stock.name}`">
+    <mt-cell @click.native="showStock(stock)" v-bind:key="stock.id" v-for="stock in stocks" :title="`${stock.name}`">
       <span style="color: red">￥{{stock.currentPrice}}</span>
     </mt-cell>
   </div>
-  <!-- <el-table :data="stocks" stripe @row-click="showStock" style="width: 100%">
-    <el-table-column prop="name" label="股票名称" width="180"/>
-    <el-table-column prop="currentPrice" label="当前价"/>
-    <el-table-column prop="change" label="涨幅"/>
-    <el-table-column prop="changePer" label="涨幅"/>
-    <el-table-column prop="market" label="市场"/>
-  </el-table>-->
 </template>
 
 <script>
