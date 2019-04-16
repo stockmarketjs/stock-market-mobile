@@ -10,10 +10,12 @@
   "dependencies": {
     "axios": "^0.18.0",
     "core-js": "^2.6.5",
+    "echarts": "^4.2.1",
     "eslint-config-prettier": "^4.1.0",
     "lodash": "^4.17.11",
     "mint-ui": "^2.2.13",
     "moment": "^2.24.0",
+    "v-charts": "^1.19.0",
     "vue": "^2.6.6",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"

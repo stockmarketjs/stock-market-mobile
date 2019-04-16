@@ -1,23 +1,13 @@
 <template>
   <div>
-    <mt-cell v-bind:key="row.shift" v-for="row in soldShifts" :title="`卖${row.shift}`">
+    <mt-cell v-bind:key="`sold${row.shift}`" v-for="row in soldShifts" :title="`卖${row.shift}`">
       <span style="color: red">￥{{row.price}}</span>
       <span style="color: black">&nbsp;&nbsp;{{row.hand}}手</span>
     </mt-cell>
-    <mt-cell v-bind:key="row.shift" v-for="row in buyShifts" :title="`买${row.shift}`">
+    <mt-cell v-bind:key="`buy${row.shift}`" v-for="row in buyShifts" :title="`买${row.shift}`">
       <span style="color: red">￥{{row.price}}</span>
       <span style="color: black">&nbsp;&nbsp;{{row.hand}}手</span>
     </mt-cell>
-    <!-- <el-table :data="soldShifts">
-      <el-table-column prop="shift" :formatter="soldShiftFormat"></el-table-column>
-      <el-table-column prop="price" :formatter="priceFormat"></el-table-column>
-      <el-table-column prop="hand" :formatter="handFormat"></el-table-column>
-    </el-table>
-    <el-table :data="buyShifts">
-      <el-table-column prop="shift" :formatter="buyShiftFormat"></el-table-column>
-      <el-table-column prop="price" :formatter="priceFormat"></el-table-column>
-      <el-table-column prop="hand" :formatter="handFormat"></el-table-column>
-    </el-table> -->
   </div>
 </template>
 
