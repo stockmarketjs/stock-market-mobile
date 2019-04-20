@@ -1,7 +1,13 @@
 <template>
   <div>
-    <mt-cell @click.native="showStock(stock)" v-bind:key="stock.id" v-for="stock in stocks" :title="`${stock.name}`">
+    <mt-cell
+      @click.native="showStock(stock)"
+      v-bind:key="stock.id"
+      v-for="stock in stocks"
+      :title="`${stock.name}`"
+    >
       <span style="color: red">￥{{stock.currentPrice}}</span>
+      <span style="color: red">{{this._.round(stock.change/stock.startPrice*100,2)}}%</span>
     </mt-cell>
   </div>
 </template>
@@ -22,12 +28,7 @@ export default {
       this.axios
         .get("api/stocks")
         .then(res => {
-          this.stocks = res.data.map(v => {
-            v.market = v.market === "sh" ? "沪市" : "深市";
-            v.changePer =
-              this._.round((v.change / v.startPrice) * 100, 2) + "%";
-            return v;
-          });
+          this.stocks = res.data;
           this.timer = setTimeout(() => {
             this.getStocks();
           }, 5000);
