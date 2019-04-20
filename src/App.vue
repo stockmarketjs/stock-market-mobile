@@ -2,7 +2,7 @@
   <div>
     <mt-header title="StockMarket" fixed>
       <mt-button slot="left" @click.native="$router.back(-1)" icon="back"></mt-button>
-      <mt-button icon="search" slot="right"></mt-button>
+      <mt-button icon="search" @click.native="gotoRoute('/search')" slot="right"></mt-button>
     </mt-header>
     <router-view class="componment"/>
     <mt-tabbar fixed>
@@ -43,6 +43,11 @@ export default {
   data() {
     return {};
   },
+  created() {
+    try {
+      document.body.removeChild(document.getElementById("loading"));
+    } catch (e) {}
+  },
   methods: {
     gotoRoute(path) {
       this.$router.push(path);
@@ -52,10 +57,6 @@ export default {
 </script>
 
 <style>
-html body {
-  margin: 0;
-  padding: 0;
-}
 .mint-header {
   background-color: red !important;
 }
@@ -65,7 +66,7 @@ html body {
 }
 .componment {
   margin-top: 40px;
-    margin-bottom: 56px;
+  margin-bottom: 56px;
 }
 .red {
   background-color: red !important;

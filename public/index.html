@@ -6,7 +6,133 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-  <title>StockMarket 移动版</title>
+  <title>StockMarket</title>
+  <style>
+    html body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #loading {
+      background-color: red;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      margin: 0;
+      padding: 0;
+      /* z-index: 1; */
+      /* margin-top: 0px; */
+      /* top: 0px; */
+    }
+
+    #loading-center {
+      width: 100%;
+      height: 100%;
+    }
+
+    #loading-center-absolute {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      height: 150px;
+      width: 150px;
+      margin-top: -75px;
+      margin-left: -75px;
+    }
+
+    .object {
+      width: 20px;
+      height: 20px;
+      background-color: #FFF;
+      float: left;
+      margin-right: 20px;
+      margin-top: 65px;
+      -moz-border-radius: 50% 50% 50% 50%;
+      -webkit-border-radius: 50% 50% 50% 50%;
+      border-radius: 50% 50% 50% 50%;
+    }
+
+    #object_one {
+      -webkit-animation: object_one 1.5s infinite;
+      animation: object_one 1.5s infinite;
+    }
+
+    #object_two {
+      -webkit-animation: object_two 1.5s infinite;
+      animation: object_two 1.5s infinite;
+      -webkit-animation-delay: 0.25s;
+      animation-delay: 0.25s;
+    }
+
+    #object_three {
+      -webkit-animation: object_three 1.5s infinite;
+      animation: object_three 1.5s infinite;
+      -webkit-animation-delay: 0.5s;
+      animation-delay: 0.5s;
+
+    }
+
+
+
+
+
+
+
+
+    @-webkit-keyframes object_one {
+      75% {
+        -webkit-transform: scale(0);
+      }
+    }
+
+    @keyframes object_one {
+
+      75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+      }
+
+    }
+
+
+
+
+
+    @-webkit-keyframes object_two {
+
+
+      75% {
+        -webkit-transform: scale(0);
+      }
+
+
+    }
+
+    @keyframes object_two {
+      75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+      }
+
+    }
+
+    @-webkit-keyframes object_three {
+
+      75% {
+        -webkit-transform: scale(0);
+      }
+
+    }
+
+    @keyframes object_three {
+
+      75% {
+        transform: scale(0);
+        -webkit-transform: scale(0);
+      }
+
+    }
+  </style>
 </head>
 
 <body>
@@ -14,6 +140,15 @@
     <strong>We're sorry but stock-market-mobile doesn't work properly without JavaScript enabled. Please enable it to
       continue.</strong>
   </noscript>
+  <div id="loading">
+    <div id="loading-center">
+      <div id="loading-center-absolute">
+        <div class="object" id="object_one"></div>
+        <div class="object" id="object_two"></div>
+        <div class="object" id="object_three"></div>
+      </div>
+    </div>
+  </div>
   <div id="app"></div>
   <!-- built files will be auto injected -->
 </body>
