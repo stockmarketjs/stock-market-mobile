@@ -57,6 +57,10 @@ export default {
 </script>
 
 <style>
+html body {
+  margin: 0;
+  padding: 0;
+}
 .mint-header {
   background-color: red !important;
 }
