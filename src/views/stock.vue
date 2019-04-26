@@ -1,18 +1,16 @@
 <template>
   <div>
     <Stock/>
-    <mt-navbar v-model="selected">
-      <mt-tab-item id="1">实时</mt-tab-item>
-      <mt-tab-item id="2">日线</mt-tab-item>
-    </mt-navbar>
-    <mt-tab-container v-model="selected">
-      <mt-tab-container-item id="1">
-        <StockTrend v-if="'1' === selected"/>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-        <StockCandle v-if="'2' === selected"/>
-      </mt-tab-container-item>
-    </mt-tab-container>
+    <mu-tabs :value.sync="active2" inverse color="black" indicator-color="primary" full-width>
+      <mu-tab>实时</mu-tab>
+      <mu-tab>日线</mu-tab>
+    </mu-tabs>
+    <div class="demo-text" v-if="active2 === 0">
+      <StockTrend/>
+    </div>
+    <div class="demo-text" v-if="active2 === 1">
+      <StockCandle/>
+    </div>
     <StockShfit/>
   </div>
 </template>
@@ -34,7 +32,7 @@ export default {
   },
   data() {
     return {
-      selected: "1"
+      active2: 0
     };
   }
 };

@@ -1,13 +1,23 @@
 <template>
   <div>
-    <mt-cell v-bind:key="`sold${row.shift}`" v-for="row in soldShifts" :title="`卖${row.shift}`">
-      <span style="color: red">￥{{row.price}}</span>
-      <span style="color: black">&nbsp;&nbsp;{{row.hand}}手</span>
-    </mt-cell>
-    <mt-cell v-bind:key="`buy${row.shift}`" v-for="row in buyShifts" :title="`买${row.shift}`">
-      <span style="color: red">￥{{row.price}}</span>
-      <span style="color: black">&nbsp;&nbsp;{{row.hand}}手</span>
-    </mt-cell>
+    <mu-paper :z-depth="1">
+      <mu-data-table hideHeader :columns="columns" :data="soldShifts">
+        <template slot-scope="scope">
+          <td>卖{{scope.row.shift}}</td>
+          <td>￥{{scope.row.price}}</td>
+          <td>{{scope.row.hand}}</td>
+        </template>
+      </mu-data-table>
+    </mu-paper>
+    <mu-paper :z-depth="1">
+      <mu-data-table hideHeader :columns="columns" :data="buyShifts">
+        <template slot-scope="scope">
+          <td>买{{scope.row.shift}}</td>
+          <td>￥{{scope.row.price}}</td>
+          <td>{{scope.row.hand}}</td>
+        </template>
+      </mu-data-table>
+    </mu-paper>
   </div>
 </template>
 
@@ -15,6 +25,12 @@
 export default {
   data() {
     return {
+      primary: "primary",
+      columns: [
+        { title: "名称", name: "shift" },
+        { title: "名称", name: "price" },
+        { title: "名称", name: "hand" }
+      ],
       timer1: null,
       timer2: null,
       buyShifts: [],
@@ -29,7 +45,15 @@ export default {
     clearTimeout(this.timer1);
     clearTimeout(this.timer2);
   },
+  beforeRouteLeave(to, from, next) {
+    clearTimeout(this.timer1);
+    clearTimeout(this.timer2);
+    next();
+  },
   methods: {
+    setClass(change) {
+      return change >= 0 ? "red" : "green";
+    },
     buyShiftFormat: function(row, column) {
       return `买${row.shift}`;
     },
@@ -77,4 +101,10 @@ export default {
 </script>
 
 <style scoped>
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
 </style>
