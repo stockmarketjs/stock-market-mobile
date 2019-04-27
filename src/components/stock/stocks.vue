@@ -1,6 +1,5 @@
 <template>
   <div>
-    <mu-container style="padding: 0 1px">
       <mu-paper :z-depth="1">
         <mu-data-table
           stripe
@@ -18,16 +17,6 @@
           </template>
         </mu-data-table>
       </mu-paper>
-    </mu-container>
-    <!-- <mt-cell
-      @click.native="showStock(stock)"
-      v-bind:key="stock.id"
-      v-for="stock in stocks"
-      :title="`${stock.name}`"
-    >
-      <span style="color: black">￥{{stock.currentPrice}}</span>
-      <span style="color: red; margin-left: 10px">{{stock.changePer}}</span>
-    </mt-cell>-->
   </div>
 </template>
 

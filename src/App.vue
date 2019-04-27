@@ -2,7 +2,7 @@
   <div style="width: 100%;height: 100vh">
     <mu-flex direction="column" style="width: 100%;height: 100vh;">
       <mu-flex style="width: 100%">
-        <mu-appbar style="width: 100%;" color="primary">
+        <mu-appbar z-index="999" style="width: 100%;" color="primary">
           <mu-button icon slot="left" @click.native="goBack">
             <mu-icon value="arrow_back"></mu-icon>
           </mu-button>StockMarket
