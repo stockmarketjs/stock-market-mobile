@@ -58,6 +58,8 @@ export default {
 </script>
 
 <style>
+@import "https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css";
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic";
 .compoment{
   margin-bottom: 56px;
 }
