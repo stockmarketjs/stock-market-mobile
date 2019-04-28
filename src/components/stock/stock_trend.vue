@@ -22,9 +22,10 @@ export default {
             }
           },
           smooth: 0,
+          showSymbol: false,
           areaStyle: {
             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                            { offset: 0, color: "rgba(100,181,246,0.6)" },
+              { offset: 0, color: "rgba(100,181,246,0.6)" },
               { offset: 1, color: "rgba(255,255,255,0.2)" }
             ])
           }

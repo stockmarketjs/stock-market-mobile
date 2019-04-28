@@ -1,19 +1,19 @@
 <template>
-  <div style="width: 100%;height: 100vh">
-    <mu-flex direction="column" style="width: 100%;height: 100vh;">
-      <mu-flex style="width: 100%">
-        <mu-appbar z-index="999" style="width: 100%;" color="primary">
-          <mu-button icon slot="left" @click.native="goBack">
-            <mu-icon value="arrow_back"></mu-icon>
-          </mu-button>StockMarket
-          <mu-button icon slot="right" to="/search">
-            <mu-icon value="search"></mu-icon>
-          </mu-button>
-        </mu-appbar>
-      </mu-flex>
-      <mu-flex style="width: 100%;" fill>
-        <router-view class="compoment" style="width: 100%;padding: 0px"/>
-      </mu-flex>
+  <div>
+    <div>
+      <mu-appbar style="width: 100%;" color="primary">
+        <mu-button icon slot="left" @click.native="goBack">
+          <mu-icon value="arrow_back"></mu-icon>
+        </mu-button>StockMarket
+        <mu-button icon slot="right" to="/search">
+          <mu-icon value="search"></mu-icon>
+        </mu-button>
+      </mu-appbar>
+    </div>
+    <div>
+      <router-view class="compoment" style="width: 100%;padding: 0px"/>
+    </div>
+    <div>
       <mu-flex style="width: 100%;" class="bottom-bar">
         <mu-container style="width: 100%;padding: 0px">
           <mu-bottom-nav color="primary" shift>
@@ -32,7 +32,7 @@
           </mu-bottom-nav>
         </mu-container>
       </mu-flex>
-    </mu-flex>
+    </div>
   </div>
 </template>
 
@@ -60,13 +60,19 @@ export default {
 <style>
 @import "https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css";
 @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic";
-.compoment{
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.compoment {
+  flex: auto;
   margin-bottom: 56px;
 }
 .bottom-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 </style>
